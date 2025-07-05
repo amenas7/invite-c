@@ -1,6 +1,6 @@
 <div class="overlay" *ngIf="showOverlay" (click)="hideOverlay()" @fadeInOut>
     <div style="text-align: center;">
-        <img src="../../../assets/img/silueta-pareja.png" class="img-fluid" alt="Silueta de pareja">
+        <img src="../../../assets/img/silueta_.png" class="img-fluid silueta-img" alt="Silueta de pareja">
 
         <hr style="text-align: center;
          align-items: center;
@@ -140,7 +140,7 @@
             
                                 <div style="display: flex; justify-content: center;" class="mt-5">
                                     <a style="cursor: pointer; text-decoration: none; display: flex; align-items: center; justify-content: center; color: white; background-color: #769389; border: 1px solid #769389; padding: 5px 32px; padding-bottom: 5px; border-radius: 5px; font-size: 20px;"
-                                    target="_blank" href="https://maps.app.goo.gl/ucxu6fFpt9bTf6Mp7"> VER MAPA 
+                                    target="_blank" href="https://www.google.com/maps/place/Fundo+Maratuech/@-11.5004805,-77.2177609,16z/data=!4m7!3m6!1s0x91068bffc9b7d771:0x23607b4a1317fdff!8m2!3d-11.5044619!4d-77.2134741!15sChdjYXNhIGhhY2llbmRhIG1hcmF0dWVjaFoZIhdjYXNhIGhhY2llbmRhIG1hcmF0dWVjaJIBCnBsYXlncm91bmSaASNDaFpEU1VoTk1HOW5TMFZKUTBGblNVUXphMlZxTTB4M0VBReABAPoBBAgAEDg!16s%2Fg%2F11r_x85yb_?entry=tts&g_ep=EgoyMDI0MTIxMS4wIPu8ASoASAFQAw%3D%3D"> VER MAPA 
                                     <lord-icon
                                         src="../../../assets/json/ubicacion-blanco-bold.json"
                                         trigger="loop"
@@ -174,10 +174,8 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="container mt-5" data-aos="fade-up">
-            <div class="row">
+            <div class="row" data-aos="fade-up">
                 <div class="col-12 mx-auto mb-5">
                     <div class="container">
                         <div class="row">
@@ -213,7 +211,7 @@
                 <div class="col-12 col-lg-10 mx-auto mb-5" data-aos="fade-up">
                     <div class="container">
                         <div class="row">
-                            <div style="text-align: center;" class="">
+                            <div style="text-align: center;" class="mt-5">
                                 <lord-icon src="../../../assets/json/regalo.json" trigger="loop" stroke="light" state="hover-pinch" style="width:150px;height:150px">
                                 </lord-icon>
                             </div>
@@ -230,15 +228,8 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Imagen fija que se muestra con AOS -->
-        <!-- <div class="fixed-image-container-2" data-aos="fade-left">
-            <img src="../../../assets/img/flor-izq.png" class="fixed-image">
-        </div> -->
-       
-        <div class="container" data-aos="fade-up">
-            <div class="row mt-5 mb-4 p-2">
+            <div class="row mt-5 mb-5 p-2" data-aos="fade-up">
                 <div class="col-12 mx-auto">
                     <div style="text-align: center;">
                         <lord-icon src="../../../assets/json/document.json" trigger="loop" stroke="light" style="width:150px;height:150px">
@@ -282,29 +273,33 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Imagen fija que se muestra con AOS -->
-        <!-- <div class="fixed-image-container-3" data-aos="fade-left">
-            <img src="../../../assets/img/flor-izq.png" class="fixed-image">
-        </div> -->
-
-        <div class="container" data-aos="fade-up">
-            <div class="row mt-4 mb-4">
+            <div class="row mt-5 mb-4" data-aos="fade-up">
                 <div class="col-12 col-md-10 col-lg-8 mx-auto">
                     <p style="text-align: center; font-size: 48px; color: #769389;" class="p-2 ashley-southine">!Te esperamos!</p>
                 </div>
             </div>
-            <div class="row p-0 m-0">
+            <div class="row p-0 m-0" data-aos="fade-up">
                 <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
             </div>
+
+            <div class="row">
+                <div class="mt-1" style="visibility: hidden;">
+                    <p>Lorem ipsum, dolor sit amet consectetur</p>
+                </div>
+            </div>
+
         </div>
 
-        <div class="mt-2" style="visibility: hidden;">
-            <p>Lorem ipsum, dolor sit amet consectetur</p>
-        </div>
-
-
+        <!-- Imagen fija que se muestra con AOS -->
+        <!-- <div class="fixed-image-container-2" data-aos="fade-left">
+            <img src="../../../assets/img/flor-izq.png" class="fixed-image">
+        </div> -->
+       
+        <!-- Imagen fija que se muestra con AOS -->
+        <!-- <div class="fixed-image-container-3" data-aos="fade-left">
+            <img src="../../../assets/img/flor-izq.png" class="fixed-image">
+        </div> -->
 
 
     </div>

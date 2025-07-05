@@ -47,7 +47,13 @@
 .content {
   position: relative;
   z-index: 5;
+  background-color: #F6F0E6;
   //padding: 20px;
+}
+
+// Asegurar que los containers mantengan fondo blanco
+.container {
+  background-color: white;
 }
 
 .fraunces {
@@ -420,4 +426,12 @@ border-right: none; /* Elimina el borde derecho del último elemento */
       max-height: 70vh;
     }
   }
+}
+
+.silueta-img {
+  max-width: 180px;
+  width: 70%;
+  height: auto;
+  margin: 0 auto 1rem auto;
+  display: block;
 }
