@@ -322,7 +322,7 @@ export class HomeComponent implements OnInit, OnDestroy{
       confirmButtonText: "Registrar",
       showLoaderOnConfirm: true,
       cancelButtonText: "Cancelar",
-      confirmButtonColor: "#202020",
+      confirmButtonColor: "#769389",
       preConfirm: async (nombre_autor) => {
         if (!nombre_autor || nombre_autor.trim() === "") {
           Swal.fire({
@@ -330,7 +330,7 @@ export class HomeComponent implements OnInit, OnDestroy{
             title: 'Recuerde ingresar su canción y el cantante',
             showConfirmButton: true,
             showCloseButton: false,
-            confirmButtonColor: '#202020'
+            confirmButtonColor: '#769389'
           });
           return false; 
         }
@@ -367,7 +367,7 @@ export class HomeComponent implements OnInit, OnDestroy{
           title: 'Tu música fue registrada, te esperamos el 07 de Setiembre ❤️',
           showConfirmButton: true,
           showCloseButton: false,
-          confirmButtonColor: '#202020'
+          confirmButtonColor: '#769389'
         });
       }
     });
@@ -385,7 +385,7 @@ export class HomeComponent implements OnInit, OnDestroy{
       showCancelButton: true,
       confirmButtonText: "confirmar",
       cancelButtonText: 'Aún no',
-      confirmButtonColor: '#202020'
+      confirmButtonColor: '#769389'
     }).then((result) => {
 
       if (result.isConfirmed) {
@@ -396,7 +396,7 @@ export class HomeComponent implements OnInit, OnDestroy{
             title: 'Recuerde ingresar su nombre',
             showConfirmButton: true,
             showCloseButton: false,
-            confirmButtonColor: '#202020'
+            confirmButtonColor: '#769389'
           });
           return;
         }
@@ -407,7 +407,7 @@ export class HomeComponent implements OnInit, OnDestroy{
             title: 'Recuerde ingresar su celular',
             showConfirmButton: true,
             showCloseButton: false,
-            confirmButtonColor: '#202020'
+            confirmButtonColor: '#769389'
           });
           return;
         }
@@ -418,7 +418,7 @@ export class HomeComponent implements OnInit, OnDestroy{
             title: 'Recuerde seleccionar si podrá asistir a nuestra boda',
             showConfirmButton: true,
             showCloseButton: false,
-            confirmButtonColor: '#202020'
+            confirmButtonColor: '#769389'
           });
           return;
         }
@@ -441,7 +441,7 @@ export class HomeComponent implements OnInit, OnDestroy{
               title: 'Asistencia confirmada',
               showConfirmButton: true,
               showCloseButton: false,
-              confirmButtonColor: '#202020'
+              confirmButtonColor: '#769389'
             });
 
             this._inputNombre = "";
