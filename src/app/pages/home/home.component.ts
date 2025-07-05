@@ -432,11 +432,10 @@ export class HomeComponent implements OnInit, OnDestroy{
           mensaje: this._inputMensaje
         }
 
-        this.apiService.registerData(data).subscribe(
-          (response: HttpResponse<any>) => {
-            if (response.status == 201){
-
-             Swal.fire({
+        this.apiService.sendToGoogleSheets(data).subscribe(
+          (response) => {
+            console.log('Guardado en Google Sheets:', response);
+            Swal.fire({
               icon: 'success',
               title: 'Asistencia confirmada',
               showConfirmButton: true,
@@ -448,12 +447,9 @@ export class HomeComponent implements OnInit, OnDestroy{
             this._inputCelular = "";
             this._inputAsistencia = "";
             this._inputMensaje = "";
-
-            }
-            console.log("response...", response);
           },
-          (error: any) => {
-            console.log("error...", error);
+          (error) => {
+            console.log('Error al guardar en Google Sheets:', error);
           }
         );
 
