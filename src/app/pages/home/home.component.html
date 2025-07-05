@@ -1,0 +1,312 @@
+<div class="overlay" *ngIf="showOverlay" (click)="hideOverlay()" @fadeInOut>
+    <div style="text-align: center;">
+        <img src="../../../assets/img/silueta-pareja.png" class="img-fluid" alt="Silueta de pareja">
+
+        <hr style="text-align: center;
+         align-items: center;
+         width: 240px;
+         height: 2px;
+         background-color: #fff;
+         border: none;
+         margin: auto;
+         opacity: 1;">
+
+        <h1 class="fraunces-t1 mt-4" style="color: white; font-size: 0.9rem;"> BIENVENIDOS A LA INVITACIÓN DE </h1>
+        <h1 class="ashley-southine mt-3" style="color: white; font-size: 3rem;"> Cristian & Danitza </h1>
+
+        <hr 
+         class="mt-4"
+         style="text-align: center;
+         align-items: center;
+         width: 240px;
+         height: 2px;
+         background-color: #fff;
+         border: none;
+         margin: auto;
+         opacity: 1;">
+
+        <p class="mt-4 mb-2 p-2 fraunces-t1 mt-3" style="font-size: 0.9rem; margin: 10px auto; color: white;">LA MÚSICA DE FONDO ES PARTE DE LA EXPERIENCIA</p>
+
+        <button class="btn_ingresar" style="padding: 15px 30px; font-size: 25px;"> Ingresar </button>
+    </div>
+</div>
+
+
+
+<div class="content" [@fadeInOut]="!showOverlay ? 'in' : ''">
+
+    <!-- botón audio flotando -->
+    <div class="floating-button" (click)="toggleMute()">
+        <i [class]="isMuted ? 'fas fa-volume-mute' : 'fas fa-volume-up'"></i>
+    </div>
+    <!---->
+
+    <div>
+
+        <!-- Imagen de cabecera con difuminado -->
+        <div class="container">
+            <div class="header-img-diffuse">
+                <img src="../../../assets/img/header.jpg" alt="header" />
+            </div>
+            <div class="row mb-5 mt-5 p-4">
+                <div class="col-12 col-md-8 col-lg-6 mx-auto">            
+                    <div class="progress position-relative" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemax="100">
+                        <div class="progress-bar" style="background-color: #ecc998;" [style.width]="(percentage) + '%'" ></div>
+                        <i class="fas fa-music position-absolute" style="right: 10px; top: 50%; transform: translateY(-50%); color: #202020;"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-10 col-lg-8 mx-auto" style="text-align: center;">
+                    <h1 class="ashley-southine mt-3" style="color: #474646; font-size: 3rem;"> Cristian & Danitza </h1>
+                    <p>27 • SEPT • 2025</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row mb-3">
+                <div class="col-12 col-md-10 col-lg-8 mx-auto">
+                    <p class="p-3 pt-4 cormorantInfant-regular" style="text-align: center; color: #202020; font-size: 1.3rem;">
+                        Un nuevo capítulo comienza y queremos que seas parte de esta historia.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-12 mb-5">
+                    <div class="countdown-row">
+                        <div class="count-rect text-center">
+                            <div class="value-ct cormorantInfant-regular">{{ days }}</div>
+                            <div class="label-ct">DÍAS</div>
+                        </div>
+                        <div class="count-rect text-center">
+                            <div class="value-ct cormorantInfant-regular">{{ hours }}</div>
+                            <div class="label-ct">HORAS</div>
+                        </div>
+                        <div class="count-rect text-center">
+                            <div class="value-ct cormorantInfant-regular">{{ minutes }}</div>
+                            <div class="label-ct">MINUTOS</div>
+                        </div>
+                        <div class="count-rect text-center">
+                            <div class="value-ct cormorantInfant-regular">{{ seconds }}</div>
+                            <div class="label-ct">SEGUNDOS</div>
+                        </div>
+                    </div>
+                </div>
+
+ 
+            </div>
+
+        </div>
+
+        <div class="container border">
+            <div class="row">
+
+                <div class="col-12 col-md-10 col-lg-8 mx-auto mb-5">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <img src="../../../assets/img/separador.png" alt="separador" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-12 mt-4 mb-5" style="text-align: center;" data-aos="fade-up">
+                                <p class="cormorantInfant-regular" style="border: 2px solid #747474; margin: 0 auto; padding: 0.5rem; border-radius: 0.2rem; font-size: 1.3rem; color: #0E0F0D;">
+                                    FECHA
+                                </p>
+                            </div>
+            
+                            <div class="col-12" style="text-align: center;">
+            
+                                <lord-icon src="../../../assets/json/anillo.json" trigger="loop" stroke="light" colors="primary:#3D518B,secondary:#3D518B" style="width:150px;height:150px" data-aos="fade-up">
+                                </lord-icon>
+                                
+                            </div>
+                            <div class="col-12 mt-3" style="text-align: center;">            
+                                <p class="p-2 pt-0 mb-5 cormorantInfant-regular" style="text-align: center; color: #212529; font-size: 22px;">
+                                    Sábado 27 de Setiembre 4PM
+                                </p>
+            
+            
+            
+                                <p class="cormorantInfant-regular" style="border: 2px solid #747474; margin: 0 auto; padding: 0.5rem; border-radius: 0.2rem; font-size: 1.3rem; color: #0E0F0D;">
+                                    LUGAR
+                                </p>
+                                <p class="p-2 cormorantInfant-regular pt-5" style="text-align: center; color: #212529; font-size: 22px;">
+                                    Fundo Maratuech
+                                </p>
+            
+                                <div style="display: flex; justify-content: center;" class="mt-5">
+                                    <a style="cursor: pointer; text-decoration: none; display: flex; align-items: center; justify-content: center; color: white; background-color: #ecc998; border: 1px solid #ecc998; padding: 5px 32px; padding-bottom: 5px; border-radius: 5px; font-size: 20px;"
+                                    target="_blank" href="https://maps.app.goo.gl/ucxu6fFpt9bTf6Mp7"> VER MAPA 
+                                    <lord-icon
+                                        src="../../../assets/json/ubicacion-blanco-bold.json"
+                                        trigger="loop"
+                                        stroke="bold"
+                                        state="hover-pinch"
+                                        style="width:30px;height:30px; margin-left: 10px; margin-bottom: 4px;">
+                                    </lord-icon>
+                                </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-10 col-lg-8 mx-auto mb-5 mt-3" data-aos="fade-up">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 mt-4" style="text-align: center;">                                
+                                <lord-icon src="../../../assets/json/celebracion.json" trigger="loop" stroke="light" state="hover-pinch" style="width:150px;height:150px;">
+                                </lord-icon>
+                            </div>
+                            <div class="col-12">
+                                <p class="p-2 mt-3 mb-5 cormorantInfant-regular" style="text-align: center; color: #202020; font-size: 22px; text-transform: uppercase;">
+                                    Vestimenta <b>Elegante</b>
+                                    <br>
+                                    <br> Evita utilizar el color blanco, será exclusivo para la novia. !Esperamos verte brillar con tu estilo único!
+                                </p>
+                            </div>
+                            
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-5" data-aos="fade-up">
+            <div class="row">
+                <div class="col-12 mx-auto mb-5">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card" style="background-color: #E4C4A1; border: none; text-align: center;">
+                                    <h5 class="mt-4 mb-2 cormorantInfant-regular" style="text-align: center; color: white; font-size: 2rem;"> MÚSICA </h5>
+            
+                                    <div style="text-align: center;">
+                                        <lord-icon src="../../../assets/json/music.json" trigger="loop" stroke="light" state="hover-pinch" style="width:250px;height:250px">
+                                        </lord-icon>
+                                    </div>
+            
+                                    <div class="card-body">
+                                        <p class="card-text mt-1 mb-4 cormorantInfant-regular" style="color: white; font-weight: 500; text-align: center; font-size: 1.4rem;"> ¿Cuál es la canción que no debe faltar en la PlayList de la fiesta?</p>
+                                        <div style="text-align: center;" class="mb-3">
+            
+                                            <a (click)="showCancionesForm()" style="text-decoration: none; display: flex; align-items: center; justify-content: center; color: #C8A783; background-color: white; border: 1px solid white; padding-top: 0px; padding-bottom: 1px; border-radius: 15px; font-size: 1.2rem; cursor: pointer;" class="cormorantInfant-regular"> Sugerir canciones aquí
+                                        <lord-icon
+                                            src="../../../assets/json/seleccionar.json"
+                                            trigger="loop"
+                                            state="hover-pinch"
+                                            style="width:30px;height:30px; margin-left: 10px; margin-bottom: 10px;">
+                                        </lord-icon>
+                                    </a>
+            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-10 col-lg-8 mx-auto mb-5" data-aos="fade-up">
+                    <div class="container">
+                        <div class="row">
+                            <div style="text-align: center;" class="">
+                                <lord-icon src="../../../assets/json/regalo.json" trigger="loop" stroke="light" state="hover-pinch" style="width:150px;height:150px">
+                                </lord-icon>
+                            </div>
+            
+                            <p style="text-align: center; color: #202020; font-size: 22px; margin-bottom: 0" class="p-3 cormorantInfant-regular">
+                                Lo más importante para nosotros es qué puedas celebrar nuestro día. Si deseas tener un detalle con un regalo físico puedes hacerlo el día de la boda o a través de:
+                            </p>
+                            <p style="text-align: center; color: #202020; font-size: 22px; margin-bottom: 0; padding-top: 0 !important; padding-bottom: 0px !important;" class="p-2 cormorantInfant-regular"> <b> BCP </b> Cristian Zapata Villafana </p>
+                            <p style="text-align: center; color: #202020; font-size: 22px; margin-bottom: 0; padding-top: 0 !important; padding-bottom: 0px !important;" class="p-2 cormorantInfant-regular"> Cuenta: 37035510967015 </p>
+                            <p style="text-align: center; color: #202020; font-size: 22px; margin-bottom: 0; padding-top: 0 !important; padding-bottom: 0px !important;" class="p-2 cormorantInfant-regular"> CCI Interbancaria: 00237013551096701555 </p>
+
+                            <p style="text-align: center; color: #202020; font-size: 22px; margin-bottom: 0; padding-top: 0 !important; padding-bottom: 0px !important;" class="p-2 cormorantInfant-regular mt-3"> <b>YAPE</b> : 951 897 708 </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Imagen fija que se muestra con AOS -->
+        <div class="fixed-image-container-2" data-aos="fade-left">
+            <img src="../../../assets/img/flor-izq.png" class="fixed-image">
+        </div>
+       
+        <div class="container" data-aos="fade-up">
+            <div class="row mt-5 mb-4 p-2">
+                <div class="col-12 col-md-10 col-lg-8 mx-auto">
+                    <div style="text-align: center;">
+                        <lord-icon src="../../../assets/json/document.json" trigger="loop" stroke="light" style="width:150px;height:150px">
+                        </lord-icon>
+                    </div>
+                    <p style="text-align: center; font-size: 48px; color: #B27E49;" class="p-2 ashley-southine">Asistencia</p>
+
+                    <div class="col-12">
+                        <div class="mb-3">
+                            <label for="idNombre" class="form-label cormorantInfant-regular" style="color: #202020; font-size: 20px;"> Nombre del invitado </label>
+                            <input [(ngModel)]="_inputNombre" type="text" class="form-control" placeholder="Ingrese su nombre completo" autocomplete="off" maxlength="40" (keypress)="validateNombre($event)">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="idCelular" class="form-label cormorantInfant-regular" style="color: #202020; font-size: 20px;"> Celular </label>
+                            <input [(ngModel)]="_inputCelular" type="text" class="form-control" id="idCelular" placeholder="Ingrese su celular" (keypress)="validateNumber($event)" maxlength="10" autocomplete="off" inputmode="numeric"
+                            pattern="[0-9]*">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="idConfirmacion" class="form-label cormorantInfant-regular" style="color: #202020; font-size: 20px;"> Confirmación </label>
+                            <select [(ngModel)]="_inputAsistencia" id="idConfirmacion" class="form-select">
+                                <option value="">--Seleccione--</option>
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="idMensaje" class="form-label cormorantInfant-regular" style="color: #202020; font-size: 20px;"> Mensaje para los novios </label>
+                            <textarea [(ngModel)]="_inputMensaje" name="" id="idMensaje" rows="10" style="resize: none; height: 200px; width: 100%;" class="form-control" autocomplete="off" maxlength="150">
+
+                            </textarea>
+                        </div>
+                    </div>
+
+                    <div class="col-12 text-end">
+                        <button class="btn btn-primary cormorantInfant-regular" style="background-color: #202020; border: none; cursor: pointer;" (click)="confirmar()">
+                            Enviar <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Imagen fija que se muestra con AOS -->
+        <div class="fixed-image-container-3" data-aos="fade-left">
+            <img src="../../../assets/img/flor-izq.png" class="fixed-image">
+        </div>
+
+        <div class="container">
+            <div class="row mt-4 mb-4">
+                <div class="col-12 col-md-10 col-lg-8 mx-auto">
+                    <p style="text-align: center; font-size: 48px; color: #B27E49;" class="p-2 ashley-southine">!Te esperamos!</p>
+                </div>
+            </div>
+            <div class="row p-0 m-0">
+                <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
+            </div>
+        </div>
+
+        <div class="mt-2" style="visibility: hidden;">
+            <p>Lorem ipsum, dolor sit amet consectetur</p>
+        </div>
+
+
+
+
+    </div>
+
+</div>

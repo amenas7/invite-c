@@ -1,0 +1,28 @@
+html, body { 
+    height: 100%;
+    background-color: #FDFEFE;
+}
+body { margin: 0; }
+
+@font-face {
+  font-family: 'Ashley Southine';
+  src: url('assets/font/Ashley_Southine.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.ashley-southine {
+  font-family: 'Ashley Southine', cursive, sans-serif;
+}
+
+
+@font-face {
+    font-family: 'CormorantInfant Regular';
+    src: url('assets/font/CormorantInfant-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+.cormorantInfant-regular {
+    font-family: 'CormorantInfant Regular', cursive, sans-serif;
+}
