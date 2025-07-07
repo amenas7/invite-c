@@ -84,6 +84,7 @@ export class HomeComponent implements OnInit, OnDestroy{
     this.playSound();
     this.showOverlay = false;
     this.enableScroll();
+    this.scrollTop();
   }
 
   disableScroll() {
@@ -108,7 +109,7 @@ export class HomeComponent implements OnInit, OnDestroy{
     this.disableScroll();
     window.scrollTo(0, 0);
 
-    this.countdownDate = new Date('2025-09-07T16:00:00').getTime();
+    this.countdownDate = new Date('2025-09-27T16:00:00').getTime();
     // Immediately update countdown when component initializes
     this.updateCountdownDays();
 
@@ -120,6 +121,7 @@ export class HomeComponent implements OnInit, OnDestroy{
     // Marcar el componente como cargado después de un breve delay
     setTimeout(() => {
       this.componentLoaded = true;
+      this.scrollTop(); // Asegurar que el scroll esté en la parte superior después de cargar
     }, 100);
 
     this.galleryOptions = [
@@ -217,9 +219,19 @@ export class HomeComponent implements OnInit, OnDestroy{
 
 
   scrollTop(){
+    // Múltiples métodos para asegurar que el scroll funcione en todos los navegadores
     setTimeout(() => {
+      // Método 1: window.scrollTo
+      window.scrollTo(0, 0);
+      
+      // Método 2: document.documentElement.scrollTop
       document.documentElement.scrollTop = 0;
+      
+      // Método 3: document.body.scrollTop (para navegadores más antiguos)
       document.body.scrollTop = 0;
+      
+      // Método 4: scrollIntoView
+      document.body.scrollIntoView({ behavior: 'smooth' });
     }, 0);
   }
 
