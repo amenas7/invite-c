@@ -33,7 +33,7 @@
 
 
 
-<div class="content" [@fadeInOut]="!showOverlay ? 'in' : ''">
+<div class="content" [@fadeInOut]="(!showOverlay && componentLoaded) ? 'in' : ''" [class.component-loaded]="componentLoaded && !showOverlay">
 
     <!-- botón audio flotando -->
     <div class="floating-button" (click)="toggleMute()">
@@ -59,7 +59,7 @@
             <div class="row">
                 <div class="col-12 col-md-10 col-lg-8 mx-auto" style="text-align: center;">
                     <h1 class="ashley-southine mt-3" style="color: #474646; font-size: 3rem;"> Cristian & Danitza </h1>
-                    <p>27 • SEPT • 2025</p>
+                    <p>27 • SET • 2025</p>
                 </div>
             </div>
         </div>

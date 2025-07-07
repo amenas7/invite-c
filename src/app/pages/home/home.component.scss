@@ -49,6 +49,14 @@
   z-index: 5;
   background-color: #F6F0E6;
   //padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.content.component-loaded {
+  opacity: 1;
+  visibility: visible;
 }
 
 // Asegurar que los containers mantengan fondo blanco
@@ -380,7 +388,7 @@ border-right: none; /* Elimina el borde derecho del último elemento */
 // Ancho máximo fijo de 450px desde tablet en adelante
 @media (min-width: 768px) {
   .container {
-    max-width: 450px !important;
+    max-width: 550px !important;
   }
 }
 
@@ -448,10 +456,10 @@ border-right: none; /* Elimina el borde derecho del último elemento */
     min-width: 120px;
     border-radius: 12px;
   }
-  h1.ashley-southine {
+  .overlay h1.ashley-southine {
     font-size: 2rem !important;
   }
-  .fraunces-t1, .cormorantInfant-regular, p, label, .card-text {
+  .overlay .fraunces-t1, .overlay .cormorantInfant-regular, .overlay p, .overlay label, .overlay .card-text {
     font-size: 0.9rem !important;
   }
   .container {

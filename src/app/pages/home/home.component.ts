@@ -60,6 +60,7 @@ export class HomeComponent implements OnInit, OnDestroy{
 
   //TODO
   showOverlay: boolean = true;
+  componentLoaded: boolean = false;
   //
   _inputNombre: string = "";
   _inputCelular: string = "";
@@ -116,6 +117,10 @@ export class HomeComponent implements OnInit, OnDestroy{
       this.updateCountdownDays();
     }, 1000);
 
+    // Marcar el componente como cargado después de un breve delay
+    setTimeout(() => {
+      this.componentLoaded = true;
+    }, 100);
 
     this.galleryOptions = [
       {
