@@ -70,6 +70,8 @@ export class HomeComponent implements OnInit, OnDestroy{
   isMuted = false;
   //audio: HTMLAudioElement;
 
+  enviando = false;
+
   constructor(
     private cdr: ChangeDetectorRef,
     private elRef: ElementRef,
@@ -377,7 +379,10 @@ export class HomeComponent implements OnInit, OnDestroy{
 
 
 
-  confirmar(){
+  confirmar() {
+    if (this.enviando) return; // Evita doble envío
+    this.enviando = true;
+
     Swal.fire({
       icon: 'warning',
       title: "¿Deseas Confirmar tu invitación?",
@@ -387,9 +392,7 @@ export class HomeComponent implements OnInit, OnDestroy{
       cancelButtonText: 'Aún no',
       confirmButtonColor: '#769389'
     }).then((result) => {
-
       if (result.isConfirmed) {
-
         if(this._inputNombre == ""){
           Swal.fire({
             icon: 'error',
@@ -398,9 +401,9 @@ export class HomeComponent implements OnInit, OnDestroy{
             showCloseButton: false,
             confirmButtonColor: '#769389'
           });
+          this.enviando = false;
           return;
         }
-
         if(this._inputCelular == ""){
           Swal.fire({
             icon: 'error',
@@ -409,9 +412,9 @@ export class HomeComponent implements OnInit, OnDestroy{
             showCloseButton: false,
             confirmButtonColor: '#769389'
           });
+          this.enviando = false;
           return;
         }
-
         if(this._inputAsistencia == ""){
           Swal.fire({
             icon: 'error',
@@ -420,44 +423,46 @@ export class HomeComponent implements OnInit, OnDestroy{
             showCloseButton: false,
             confirmButtonColor: '#769389'
           });
+          this.enviando = false;
           return;
         }
-
-
-
         const data = {
           nombre: this._inputNombre,
           celular: this._inputCelular,
           asistencia: this._inputAsistencia,
           mensaje: this._inputMensaje
         }
-
         this.apiService.sendToGoogleSheets(data).subscribe(
           (response) => {
-            console.log('Guardado en Google Sheets:', response);
+            this.enviando = false;
             Swal.fire({
               icon: 'success',
-              title: 'Asistencia confirmada',
+              title: '¡Asistencia confirmada!',
+              text: 'Gracias por confirmar tu asistencia. ¡Te esperamos en nuestra boda!',
               showConfirmButton: true,
               showCloseButton: false,
               confirmButtonColor: '#769389'
             });
-
             this._inputNombre = "";
             this._inputCelular = "";
             this._inputAsistencia = "";
             this._inputMensaje = "";
           },
           (error) => {
-            console.log('Error al guardar en Google Sheets:', error);
+            this.enviando = false;
+            Swal.fire({
+              icon: 'error',
+              title: 'Error al enviar datos',
+              text: 'No se pudo enviar tu confirmación. Por favor, inténtalo de nuevo más tarde.',
+              showConfirmButton: true,
+              showCloseButton: false,
+              confirmButtonColor: '#769389'
+            });
           }
         );
-
-
-      } else if (result.isDenied) {
-        
+      } else {
+        this.enviando = false;
       }
-
     });
   }
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders, HttpResponse } from '@angular/common/http';
-import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
 
 
 @Injectable({
@@ -21,8 +21,28 @@ export class ApiServiceService {
 
   // Enviar datos a Google Sheets
   sendToGoogleSheets(data: any): Observable<any> {
-    const googleSheetsUrl = 'https://script.google.com/macros/s/AKfycbwB71f3yV8gp7EIARXOdzhDmkUk_PO-gio1FPQ1A9Svm0vJYi7R2-oedOy6kjBRbg/exec'; // Reemplaza por tu URL de Apps Script
-    return this.http.post(googleSheetsUrl, data);
+    const googleSheetsUrl = 'https://script.google.com/macros/s/AKfycbzOn0WtLFNYVrUKQA96li2OGj_xSv4Z7hDwnsszpAQq8v2Z1Nv3zk6RsgRyw2v2piw/exec';
+    const formData = new FormData();
+    formData.append('nombre', data.nombre);
+    formData.append('celular', data.celular);
+    formData.append('asistencia', data.asistencia);
+    formData.append('mensaje', data.mensaje);
+
+    // Solo una llamada con fetch y no-cors
+    return new Observable(observer => {
+      fetch(googleSheetsUrl, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+      })
+      .then(() => {
+        observer.next({ result: 'success', message: 'Datos enviados' });
+        observer.complete();
+      })
+      .catch(fetchError => {
+        observer.error(new Error('Error al enviar datos. Por favor, inténtalo de nuevo.'));
+      });
+    });
   }
 
 }
