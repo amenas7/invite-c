@@ -26,6 +26,13 @@
 .content {
     background-color: #F6F0E6;
     transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+.content.component-loaded {
+    opacity: 1;
+    visibility: visible;
   }
 
 

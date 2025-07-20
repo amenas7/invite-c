@@ -80,11 +80,9 @@ export class InicioComponent implements OnInit, OnDestroy, AfterViewInit{
       this.updateCountdownDays();
     }, 1000);
 
-    // Marcar el componente como cargado después de un breve delay
-    setTimeout(() => {
-      this.componentLoaded = true;
-      this.scrollTop(); // Asegurar que el scroll esté en la parte superior después de cargar
-    }, 100);
+    // Asegurar que el overlay esté visible inmediatamente
+    this.showOverlay = true;
+    this.componentLoaded = false;
 
   }
 
@@ -143,8 +141,13 @@ export class InicioComponent implements OnInit, OnDestroy, AfterViewInit{
   hideOverlay() {
     this.playSound();
     this.showOverlay = false;
-    this.enableScroll();
-    this.scrollTop();
+    
+    // Marcar el componente como cargado después de ocultar el overlay
+    setTimeout(() => {
+      this.componentLoaded = true;
+      this.enableScroll();
+      this.scrollTop();
+    }, 50);
   }
 
   toggleMute() {
