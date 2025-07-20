@@ -1,0 +1,332 @@
+<div class="overlay" *ngIf="showOverlay" (click)="hideOverlay()" @fadeInOut>
+    <div style="text-align: center;">
+        <img src="../../../assets/img/silueta_.png" class="img-fluid silueta-img" alt="Silueta de pareja">
+
+        <hr class="separador-horizontal">
+
+        <h1 class="fraunces-t1 mt-4" style="color: white; font-size: 0.9rem;"> 
+            BIENVENIDOS A LA INVITACIÓN DE 
+        </h1>
+
+        <h1 class="ashley-southine mt-3" style="color: white; font-size: 3rem;"> 
+            Cristian & Danitza
+        </h1>
+
+        <hr class="separador-horizontal mt-4">
+
+        <p class="mt-4 mb-2 p-2 fraunces-t1 mt-3 texto-musica">
+            LA MÚSICA DE FONDO ES PARTE DE LA EXPERIENCIA
+        </p>
+
+        <button class="btn_ingresar fraunces-t1" style="padding: 15px 30px; font-size: 25px;"> 
+            Ingresar
+        </button>
+    </div>
+</div>
+
+<div class="content" [@fadeInOut]="(!showOverlay && componentLoaded) ? 'in' : ''" [class.component-loaded]="componentLoaded && !showOverlay">
+
+    <!-- botón audio flotando -->
+    <div class="floating-button" (click)="toggleMute()">
+        <i [class]="isMuted ? 'fas fa-volume-mute' : 'fas fa-volume-up'"></i>
+    </div>
+    <!---->
+
+
+    <div class="container">
+        <!-- Imagen arriba dentro del primer container -->
+        <div class="row">
+            <div class="col-12">
+                <img src="../../../assets/img/arriba.png" alt="arriba" class="img-fluid w-100">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-10 col-lg-8 mx-auto" style="text-align: center;">
+                <h1 style="color: #8EA69B; font-size: 1.2rem;" class="fraunces-t1 mt-4">¡Nos casamos!</h1>
+                <h1 class="ashley-southine mt-3" style="color: #8EA69B; font-size: 3rem;"> Cristian & Danitza </h1>
+                <p style="color: #8EA69B;">27 • SET • 2025</p>
+            </div>
+        </div>
+        <div class="row mb-2 p-4" data-aos="fade-up">
+            <div class="col-12 col-md-8 col-lg-6 mx-auto">            
+                <div class="progress position-relative" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemax="100">
+                    <div class="progress-bar" style="background-color: #8EA69B;" [style.width]="(percentage) + '%'" ></div>
+                    <i class="fas fa-music position-absolute" style="right: 10px; top: 50%; transform: translateY(-50%); color: #202020;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container-fluid px-0">
+        <img src="../../../assets/img/transp-1.png" alt="header" class="img-fluid w-100">
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <p class="p-3 pb-0 ps-4 pe-4 text-center fraunces-t1" style="color: #474646;">Tres cosas durarán para siempre: la fe, la esperanza y el amor; y la mayor de las tres es el amor.</p>
+                <p class="p-3 pt-0 fraunces-t1" style="text-align: center; color: #8EA69B">1 Corintios 13:13</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <p class="p-3 pb-0 ps-4 pe-4 text-center satisfy-regular" style="color: #7dad9c; font-size: 1.5rem;">
+                    Con la bendición de Dios y nuestros queridos padres
+                </p>
+
+
+                <p class="p-3 pt-0 fraunces-t1 mb-0" style="text-align: center; font-weight: bold;">
+                    Padres de la Novia
+                </p>
+                <p class="p-3 pt-0 pb-0 fraunces-t1 mb-0" style="text-align: center;">
+                    Antonio Vega Muñoz
+                </p>
+                <p class="p-3 pt-0 pb-0fraunces-t1" style="text-align: center;">
+                    Elizabeth Milagros Sosa Chero
+                </p>
+
+
+                <p class="p-3 pt-0 fraunces-t1 mb-0" style="text-align: center; font-weight: bold;">
+                    Padres del Novio
+                </p>
+                <p class="p-3 pt-0 pb-0 fraunces-t1 mb-0" style="text-align: center;">
+                    Felix Ernesto Zapata Barrera
+                </p>
+                <p class="p-3 pt-0 pb-0fraunces-t1" style="text-align: center;">
+                    Maria Celeste Villafana Vásquez
+                </p>
+
+
+                <p class="p-3 pb-0 ps-4 pe-4 text-center satisfy-regular mb-0" style="color: #7dad9c; font-size: 1.5rem;">
+                    Y en compañia de nuestros padrinos
+                </p>
+                <p class="p-3 pt-0 pb-0 fraunces-t1 mb-0" style="text-align: center;">
+                    Luis Edmundo Verastegui Mena
+                </p>
+                <p class="p-3 pt-0 pb-0fraunces-t1" style="text-align: center;">
+                    Janeth Luisa Sosa Chero
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid px-0">
+        <img src="../../../assets/img/transp-1.png" alt="header" class="img-fluid w-100">
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <p class="p-3 pb-0 ps-4 pe-4 text-center fraunces-t1" style="color: #474646;">
+                    Tenemos el agrado de invitarlos a Nuestra Boda
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="countdown-row">
+                    <div class="count-rect text-center">
+                        <div class="value-ct cormorantInfant-regular">{{ days }}</div>
+                        <div class="label-ct">DÍAS</div>
+                    </div>
+                    <div class="count-rect text-center">
+                        <div class="value-ct cormorantInfant-regular">{{ hours }}</div>
+                        <div class="label-ct">HORAS</div>
+                    </div>
+                    <div class="count-rect text-center">
+                        <div class="value-ct cormorantInfant-regular">{{ minutes }}</div>
+                        <div class="label-ct">MINUTOS</div>
+                    </div>
+                    <div class="count-rect text-center">
+                        <div class="value-ct cormorantInfant-regular">{{ seconds }}</div>
+                        <div class="label-ct">SEGUNDOS</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <img src="../../../assets/img/separador.png" alt="separador" class="img-fluid p-3">
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div style="display: flex; justify-content: center;">
+                    <img src="../../../assets/img/iglesia.png" alt="vestimenta" class="img-fluid mt-4" style="max-width: 100px; width: 100%;">
+                </div>
+                <p class="p-3 pb-0 ps-4 pe-4 text-center satisfy-regular mb-0" style="color: #7dad9c; font-size: 2rem">
+                    Ceremonia Religiosa
+                </p>
+                <p class="p-3 pt-0 pb-0 fraunces-t1 mb-0" style="text-align: center;">
+                    Hora: 6:00 p.m.
+                </p>
+                <p class="p-3 pt-0 pb-0fraunces-t1 mb-0" style="text-align: center;">
+                    Lugar: Iglesia Alianza Cristiana y Misionera - Huaral
+                </p>
+
+                <div style="display: flex; justify-content: center;" class="mb-5">
+                    <a target="_blank" href="https://www.google.com/maps/place/Fundo+Maratuech/@-11.5004805,-77.2177609,16z/data=!4m7!3m6!1s0x91068bffc9b7d771:0x23607b4a1317fdff!8m2!3d-11.5044619!4d-77.2134741!15sChdjYXNhIGhhY2llbmRhIG1hcmF0dWVjaFoZIhdjYXNhIGhhY2llbmRhIG1hcmF0dWVjaJIBCnBsYXlncm91bmSaASNDaFpEU1VoTk1HOW5TMFZKUTBGblNVUXphMlZxTTB4M0VBReABAPoBBAgAEDg!16s%2Fg%2F11r_x85yb_?entry=tts&g_ep=EgoyMDI0MTIxMS4wIPu8ASoASAFQAw%3D%3D">
+                        <img src="../../../assets/img/btn-click.png" alt="btn-click" class="img-fluid" style="max-width: 150px; width: 100%;">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid px-0">
+        <img src="../../../assets/img/transp-1.png" alt="header" class="img-fluid w-100">
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div style="display: flex; justify-content: center;">
+                    <img src="../../../assets/img/vestimenta.png" alt="vestimenta" class="img-fluid mt-4" style="max-width: 100px; width: 100%;">
+                </div>
+                <p class="p-3 pb-0 ps-4 pe-4 text-center satisfy-regular" style="color: #7dad9c; font-size: 2rem">
+                    Elegante
+                </p>
+                <p class="p-3 pt-0 pb-0 fraunces-t1" style="text-align: center;">
+                    Prepárense para una boda llena de colores, dejen el blanco para la novia
+                </p>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div style="text-align: center;" class="mt-5">
+                <div style="display: flex; justify-content: center;">
+                    <img src="../../../assets/img/regalo.png" alt="vestimenta" class="img-fluid mt-4" style="max-width: 100px; width: 100%;">
+                </div>
+                <p class="p-3 pb-0 ps-4 pe-4 text-center satisfy-regular mb-0" style="color: #7dad9c; font-size: 2rem;">
+                    Regalos
+                </p>
+            </div>
+
+            <p style="text-align: center; color: #202020;" class="p-3 fraunces-t1 mb-0 ps-3 pe-3">
+                El mejor regalo es que estés presente en este día tan esperado, pero si deseas hacernos un obsequio tenemos estas opciones:
+            </p>
+
+            <div class="col-md-6 text-center mb-4">
+                <p class="fraunces-t1" style="color: #202020; font-size: 20px;">N° de cuenta</p>
+                <div style="display: flex; justify-content: center;" class="mb-5">
+                    <a target="_blank" href="">
+                        <img src="../../../assets/img/btn-money.png" alt="btn-click" class="img-fluid" style="max-width: 150px; width: 100%;">
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6 text-center mb-4">
+                <p class="fraunces-t1" style="color: #202020; font-size: 20px;">Direcciones</p>
+                <div style="display: flex; justify-content: center;" class="mb-5">
+                    <a target="_blank" href="">
+                        <img src="../../../assets/img/btn-click.png" alt="btn-click" class="img-fluid" style="max-width: 150px; width: 100%;">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-12">
+                <div style="display: flex; justify-content: center;">
+                    <img src="../../../assets/img/deseo.png" alt="vestimenta" class="img-fluid mt-4" style="max-width: 100px; width: 100%;">
+                </div>
+                <p class="p-3 pb-0 ps-4 pe-4 text-center satisfy-regular mb-0" style="color: #7dad9c; font-size: 2rem;">
+                    Buzón de deseos
+                </p>
+                <p class="p-3 pt-0 pb-0 fraunces-t1 mb-0" style="text-align: center;">
+                    Nos encantaría leer tus buenos deseos.
+                </p>
+                <p class="p-3 pt-0 pb-0fraunces-t1 mb-0" style="text-align: center;">
+                    ¡Déjanos un mensaje que recordaremos por siempre!
+                </p>
+               
+                <div style="display: flex; justify-content: center;" class="mb-5">
+                    <a target="_blank" href="">
+                        <img src="../../../assets/img/btn-memsaje.png" alt="btn-click" class="img-fluid" style="max-width: 150px; width: 100%;">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-12">
+                <div style="display: flex; justify-content: center;">
+                    <img src="../../../assets/img/musica.png" alt="vestimenta" class="img-fluid mt-4" style="max-width: 100px; width: 100%;">
+                </div>
+                <p class="p-3 pb-0 ps-4 pe-4 text-center satisfy-regular mb-0" style="color: #7dad9c; font-size: 2rem;">
+                    Sugerencia de canciones
+                </p>
+                <p class="p-3 pt-0 pb-0 fraunces-t1 mb-0" style="text-align: center;">
+                    ¿Cuáles son esas canciones que no pueden faltar en nuestra boda?
+                </p>
+                <p class="p-3 pt-0 pb-0fraunces-t1 mb-0" style="text-align: center;">
+                    ¡Comparte tus favoritas con nosotros!
+                </p>
+               
+                <div style="display: flex; justify-content: center;" class="mb-5">
+                    <a target="_blank" href="">
+                        <img src="../../../assets/img/btn-canciones.png" alt="btn-click" class="img-fluid" style="max-width: 150px; width: 100%;">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid px-0">
+        <img src="../../../assets/img/transp-1.png" alt="header" class="img-fluid w-100">
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <p class="p-3 pb-0 ps-4 pe-4 text-center satisfy-regular" style="color: #7dad9c; font-size: 2rem;">
+                    Confirmar asistencia
+                </p>
+                <p class="p-3 pt-0 pb-0 fraunces-t1" style="text-align: center;">
+                    Tu presencia es muy importante para nosotros, por favor confirmanos tu asistencia hasta el 07 de Setiembre.
+                </p>
+                <div style="display: flex; justify-content: center;" class="mb-5">
+                    <a target="_blank" href="https://wa.me/924641277">
+                        <img src="../../../assets/img/btn-whatsapp.png" alt="btn-click" class="img-fluid" style="max-width: 150px; width: 100%;">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <img src="../../../assets/img/iniciales.png" alt="iniciales" class="img-fluid" style="max-width: 100px; width: 100%;">
+                    </div>
+                </div>
+                <p class="p-3 pb-0 ps-4 pe-4 text-center fraunces-t1" style="color: #474646;">
+                    Con mucha ilusión queremos vivir este momento rodeados de personas que han formado parte de nuestras historia. Será un honor contar con tu presencia.
+                </p>
+                <p class="p-3 pt-4 pb-4 ashley-southine" style="text-align: center; font-size: 2rem; color: #7dad9c;">
+                    ¡Te Esperamos!
+                </p>
+                
+                <div class="row">
+                    <div class="col-12">
+                        <img src="../../../assets/img/abajo-flores.png" alt="abajo-flores" class="img-fluid w-100">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

@@ -12,11 +12,13 @@ import { FormsModule } from '@angular/forms';
 //
 import lottie from 'lottie-web';
 import { defineElement } from 'lord-icon-element';
+import { InicioComponent } from './pages/inicio/inicio.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    InicioComponent
   ],
   imports: [
     BrowserModule,
