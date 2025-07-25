@@ -4,11 +4,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import 'hammerjs';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-//
-import { NgxGalleryOptions } from '@rybos/ngx-gallery';
-import { NgxGalleryImage } from '@rybos/ngx-gallery';
-import { NgxGalleryAnimation } from '@rybos/ngx-gallery';
-//
 import { ApiServiceService } from '../../services/api-service.service';
 import { HttpResponse } from '@angular/common/http';
 //
@@ -231,7 +226,102 @@ export class InicioComponent implements OnInit, OnDestroy, AfterViewInit{
 
   private setPercentage(currentTime: number, duration: number): void {
     this.percentage = (currentTime * 100) / duration;
-    //console.log("% del tiempo...", this.percentage);
+  }
+
+  showCancionesForm() {
+    Swal.fire({
+      title: "Ingresa el nombre de la canción y el cantante 😎 🎶",
+      input: "text",
+      inputAttributes: {
+        autocapitalize: "off",
+        autocomplete: "off",
+        maxlength: "50"
+      },
+      showCancelButton: true,
+      confirmButtonText: "Registrar",
+      showLoaderOnConfirm: true,
+      cancelButtonText: "Cancelar",
+      confirmButtonColor: "#769389",
+      preConfirm: async (nombre_autor) => {
+        if (!nombre_autor || nombre_autor.trim() === "") {
+          Swal.fire({
+            icon: 'error',
+            title: 'Recuerde ingresar su canción y el cantante',
+            showConfirmButton: true,
+            showCloseButton: false,
+            confirmButtonColor: '#769389'
+          });
+          return false; 
+        }
+  
+        try {
+          const _nombre_autor = { nombre: nombre_autor };
+          return this.apiService.sendSongToGoogleSheets(_nombre_autor).toPromise();
+        } catch (error) {
+          Swal.showValidationMessage(`No se pudo guardar los datos`);
+          return false;
+        }
+      },
+      allowOutsideClick: () => !Swal.isLoading()
+    }).then((result) => {
+      if (result.isConfirmed && result.value) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Tu música fue registrada, te esperamos el 27 de Setiembre ❤️',
+          showConfirmButton: true,
+          showCloseButton: false,
+          confirmButtonColor: '#769389'
+        });
+      }
+    });
+  }
+
+  showDeseosForm() {
+    Swal.fire({
+      title: "Ingresa el mensaje que quieres enviar a los novios",
+      input: "text",
+      inputAttributes: {
+        autocapitalize: "off",
+        autocomplete: "off",
+        maxlength: "50"
+      },
+      showCancelButton: true,
+      confirmButtonText: "Registrar",
+      showLoaderOnConfirm: true,
+      cancelButtonText: "Cancelar",
+      confirmButtonColor: "#769389",
+      preConfirm: async (nombre_autor) => {
+        if (!nombre_autor || nombre_autor.trim() === "") {
+          Swal.fire({
+            icon: 'error',
+            title: 'Recuerde ingresar un mensaje',
+            showConfirmButton: true,
+            showCloseButton: false,
+            confirmButtonColor: '#769389'
+          });
+          return false; 
+        }
+  
+        try {
+          const _nombre_autor = { nombre: nombre_autor };
+          return this.apiService.sendDeseosToGoogleSheets(_nombre_autor).toPromise();
+        } catch (error) {
+          Swal.showValidationMessage(`No se pudo guardar los datos`);
+          return false;
+        }
+      },
+      allowOutsideClick: () => !Swal.isLoading()
+    }).then((result) => {
+      if (result.isConfirmed && result.value) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Tu mensaje para los novios fue registrado, te esperamos el 27 de Setiembre ❤️',
+          showConfirmButton: true,
+          showCloseButton: false,
+          confirmButtonColor: '#769389'
+        });
+      }
+    });
   }
 
 }

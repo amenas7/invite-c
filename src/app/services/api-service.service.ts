@@ -45,4 +45,49 @@ export class ApiServiceService {
     });
   }
 
+  sendSongToGoogleSheets(data: any): Observable<any> {
+    const googleSheetsUrl = 'https://script.google.com/macros/s/AKfycbwKUYASoSlHTsLU9e4mINGnjH5e-1nlLVD5noDMiwEO1R6LaQebsUZ2DMIHRompGRVK/exec';
+    const formData = new FormData();
+    formData.append('nombre', data.nombre);
+
+    // Solo una llamada con fetch y no-cors
+    return new Observable(observer => {
+      fetch(googleSheetsUrl, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+      })
+      .then(() => {
+        observer.next({ result: 'success', message: 'Datos enviados' });
+        observer.complete();
+      })
+      .catch(fetchError => {
+        observer.error(new Error('Error al enviar datos. Por favor, inténtalo de nuevo.'));
+      });
+    });
+  }
+  
+  sendDeseosToGoogleSheets(data: any): Observable<any> {
+    const googleSheetsUrl = 'https://script.google.com/macros/s/AKfycbxn080AcHIYGHp--o1g6AcRey9gkli4_yf0QlHY4TAGNX1q-NNOJdVffUdg4Pfu7lU/exec';
+    const formData = new FormData();
+    formData.append('nombre', data.nombre);
+
+    // Solo una llamada con fetch y no-cors
+    return new Observable(observer => {
+      fetch(googleSheetsUrl, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+      })
+      .then(() => {
+        observer.next({ result: 'success', message: 'Datos enviados' });
+        observer.complete();
+      })
+      .catch(fetchError => {
+        observer.error(new Error('Error al enviar datos. Por favor, inténtalo de nuevo.'));
+      });
+    });
+  }
+
+
 }
