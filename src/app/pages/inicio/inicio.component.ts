@@ -327,7 +327,20 @@ export class InicioComponent implements OnInit, OnDestroy, AfterViewInit{
   openWhatsApp() {
     const message = "Hola Ruth! Confirmo mi asistencia a la boda de Cristian y Danitza";
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://web.whatsapp.com/send?phone=924641277&text=${encodedMessage}`;
+    
+    // Detectar si es dispositivo móvil
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    let whatsappUrl: string;
+    
+    if (isMobile) {
+      // Para móviles usar wa.me que abre la app nativa
+      whatsappUrl = `https://wa.me/924641277?text=${encodedMessage}`;
+    } else {
+      // Para PC usar WhatsApp Web
+      whatsappUrl = `https://web.whatsapp.com/send?phone=924641277&text=${encodedMessage}`;
+    }
+    
     window.open(whatsappUrl, '_blank');
   }
 
