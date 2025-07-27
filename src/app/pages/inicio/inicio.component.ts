@@ -129,9 +129,9 @@ export class InicioComponent implements OnInit, OnDestroy, AfterViewInit{
       this.hours = 0;
       this.minutes = 0;
       this.seconds = 0;
-    }
+      }
 
-  }
+}
 
   hideOverlay() {
     this.playSound();
@@ -322,6 +322,13 @@ export class InicioComponent implements OnInit, OnDestroy, AfterViewInit{
         });
       }
     });
+  }
+
+  openWhatsApp() {
+    const message = "Hola Ruth! Confirmo mi asistencia a la boda de Cristian y Danitza";
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://web.whatsapp.com/send?phone=924641277&text=${encodedMessage}`;
+    window.open(whatsappUrl, '_blank');
   }
 
 }
